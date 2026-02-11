@@ -1,31 +1,66 @@
 <link rel="stylesheet" href="/styles/userLogin.css">
 
-<div class="container">
-      <div class="login">
-         <div class="container">
-              <h1>Log in</h1>
-              <input type="email" placeholder="Email">
-              <input type="password" placeholder="Password"><br>
-              <input type="checkbox"><span>Remember me</span>
-              <a href="#">Forgot password?</a>
-              <button>log in</button>
-              <hr><p>Or Connect With</p><hr>
-              <ul>
-                  <li><i class="fab fa-facebook-f fa-2x"></i></li>
-                  <li><i class="fab fa-twitter fa-2x"></i></li>
-                  <li><i class="fab fa-github fa-2x"></i></li>
-                  <li><i class="fab fa-linkedin-in fa-2x"></i></li>
-              </ul>
-              <div class="clearfix"></div>
-              <span class="copyright">&copy;2019</span>  
-         </div>
-      </div>
-      <div class="register">
-          <div class="container">
-              <i class="fas fa-user-plus fa-5x"></i>
-              <h2>Hello,friend!</h2>
-              <p>Enter your personal details and start journey with us</p>
-              <button>Register <i class="fas fa-arrow-circle-right"></i></button>
+  <section>
+    <div class="form-box">
+      <div class="form-value">
+
+        <form>
+            <input type="hidden" id="serverMessage" value="{{message}}">
+
+
+          <h2>Login</h2>
+          <div class="inputbox">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input type="email" required>
+            <label>Email</label>
           </div>
-      </div>  
+
+          <div class="inputbox">
+
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" required>
+            <label>Password</label>
+          </div>
+          <div class="forget">
+
+            <label><input type="checkbox">Remember Me</label>
+
+            <a href="#">Forgot Password</a>
+          </div>
+
+          <button>Log In</button>
+          <div class="register">
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+          </div>
+        </form>
+      </div>
     </div>
+  </section>
+
+  <!-- ion-icon installation: Start -->
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!--ion-icon installation: End-->
+
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+    
+    const serverMessageInput = document.getElementById('serverMessage');
+    const serverMsg = serverMessageInput ? serverMessageInput.value : "";
+
+    if (serverMsg && serverMsg.trim() !== "") {
+        Swal.fire({
+            
+            icon: serverMsg.toLowerCase().includes('succes') ? 'success' : 'error',
+            title: 'Welcome', 
+            text: serverMsg,
+            timer: 3000, 
+            showConfirmButton: false, 
+            timerProgressBar: true 
+        });
+    }
+});
+</script>

@@ -1,133 +1,140 @@
-/*Start Global Style*/
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-body{
-    background:#e9ebee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:100vh;
-    font-family: sans-serif;
-}
-.container{
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-  height:100%
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-.login ,.register{width: 50%}
-
-/*Start Login Style*/
-.login{
-    float:left;
-    background-color: #fafafa;
-    height: 100%;
-    border-radius: 10px 0 0 10px;
-    text-align: center;
-    padding-top: 100px;
-}
-.login h1{
-    margin-bottom: 40px;
-    font-size: 2.5em;
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: url("https://i.postimg.cc/SxB07GjW/beach-bg.jpg") no-repeat;
+  background-position: center;
+background-size: cover;
 }
 
-input[type="email"] , input[type="password"]{
+.form-box {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border: none;
+  border-radius: 20px;
+  backdrop-filter: blur(15px) brightness(80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+}
+
+.inputbox {
+  position: relative;
+  margin: 30px 0;
+  width: 310px;
+  border-bottom: 2px solid #fff;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1em;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+/* animations: start */
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -5px;
+}
+/* animation:end */
+
+.inputbox input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 0 5px;
+  color: #fff;
+}
+
+.inputbox ion-icon {
+  position: absolute;
+  right: 8px;
+  color: #fff;
+  font-size: 1.2em;
+  top: 20px;
+}
+
+.forget {
+  margin: -10px 0 17px;
+  font-size: 0.9em;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.forget label input {
+  margin-right: 3px;
+}
+
+.forget a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.forget a:hover {
+  text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.register {
+  font-size: 0.9em;
+  color: #fff;
+  text-align: center;
+  margin: 25px 0 10px;
+}
+
+.register p a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.register p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsiveness:Start */
+@media screen and (max-width: 480px) {
+  .form-box {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 30px;
-    border: none;
-    background-color: #eeeeef;
+    border-radius: 0px;
+  }
 }
-input[type="checkbox"]{
-    float: left;
-    margin-right: 5px;
-}
-.login span{
-    float: left
-}
-.login a{
-    float: right;
-    text-decoration: none;
-    color: #000;
-    transition: 0.3s all ease-in-out;
-}
-.login a:hover{color: #9526a9;font-weight: bold}
-.login button{
-    width: 100%;
-    margin: 30px 0;
-    padding: 10px;
-    border: none;
-    background-color: #9526a9;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s all ease-in-out;
-}
-.login button:hover{
-    width:97%;
-    font-size: 22px;
-    border-radius: 5px;
-    
-}
-.login hr{
-    width: 30%;
-    display: inline-block
-}
-
-.login p{
-    display: inline-block;
-    margin: 0px 10px 30px;
-}
-.login ul{
-    list-style: none;
-    margin-bottom:40px;  
-}
-.login ul li{
-    display: inline-block;
-    margin-right: 30px;
-    cursor: pointer;
-}
-.login ul li:hover{opacity: 0.6}
-.login ul li:last-child{margin-right: 0}
-.login .copyright{
-    display: inline-block;
-    float: none;
-}
-/*Start Register Style*/
-.register{
-    float: right;
-    background-image: linear-gradient(135deg, #23212f 5%, #9526a9 95%);
-    height: 100%;
-    color:#fff;
-    border-radius:  0 10px 10px  0;
-    text-align: center;
-    padding: 100px 0;
-}
-.register h2{
-    margin: 30px 0;
-    font-size: 50px;
-    letter-spacing: 3px
-}
-.register p{
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-.register button{
-    background-color: transparent;
-    border: 1px solid #FFF;
-    border-radius: 20px;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 20px;
-    text-transform: uppercase;
-    transition:0.2s all  ease-in-out;
-}
-.register button:hover{
-    color: #9526a9;
-    background-color: #fff;
-    cursor: pointer;
-}
+/* Responsiveness:End */

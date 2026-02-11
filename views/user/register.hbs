@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="/styles/userLogin.css">
+
+  <section>
+    <div style="height: 550px" class="form-box">
+      <div class="form-value">
+
+        <form id="regForm" method="post" action="/user/register">
+{{!--
+          <input type="text" id="message" value="{{{message}}}" name="message">
+           ---------------------------------------------------------------- --}}
+          <input type="hidden" id="serverMessage" value="{{message}}">
+
+
+
+          <h2>Register</h2>
+          <div class="inputbox">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input id="email" name="email" type="email" >
+            <label>Email</label>
+          </div>
+
+          <div class="inputbox">
+
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input id="password" name="password" type="password" >
+            <label>Password</label>
+          </div>
+
+          <div class="inputbox">
+
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input id="confirm-password" name="confirm-password" type="password" >
+            <label>Confirm password</label>
+          </div>
+
+          <div class="forget">
+
+            <label><input type="checkbox">Remember Me</label>
+
+            <a href="#">Forgot Password</a>
+          </div>
+          
+          <button >Log In</button>
+
+          <div class="register">
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ion-icon installation: Start -->
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!--ion-icon installation: End-->
+
+
+
+
+
+
+<script>
+
+
+  
+
+  document.addEventListener( 'DOMContentLoaded', ()=> {
+    
+    const registerForm = document.getElementById('regForm');
+
+    // 1. Server-il ninnulla message alert aayi kaanikkanulla logic
+    const serverMessageInput = document.getElementById('serverMessage');
+    const serverMsg = serverMessageInput ? serverMessageInput.value : "";
+
+    if (serverMsg && serverMsg.trim() !== "") {
+        Swal.fire({
+            icon: serverMsg.toLowerCase().includes('succes') ? 'success' : 'error',
+            title: 'Alert',
+            text: serverMsg,
+            confirmButtonColor: '#3085d6'
+        });
+    }else{
+      
+    }
+
+
+
+    if(registerForm){
+      registerForm.addEventListener('submit', function(event){
+
+        event.preventDefault();
+
+        
+    
+
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        if(email == '' || password == "" || confirmPassword == ""){
+          Swal.fire({
+                    icon: 'warning',
+                    title: 'all fields are required',
+                    text: 'All fields must be filled',
+                    confirmButtonColor: '#3085d6'
+                });
+                return;
+        }
+
+        if (password.length < 6) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Short Password',
+                    text: 'Password must be at least 6 characters long!',
+                    confirmButtonColor: '#3085d6'
+                });
+                return;
+            }
+
+
+        if(password !== confirmPassword){
+          Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Passwords do not match!',
+                    confirmButtonColor: '#3085d6'
+                })
+          return;
+        }
+    
+               console.log("Form Data:", { email, password });
+               registerForm.submit();
+            
+    }
+    )}
+    else{
+      console.log('Form not found')
+    }
+  })
+
+
+</script>
