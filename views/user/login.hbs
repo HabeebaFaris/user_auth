@@ -4,21 +4,21 @@
     <div class="form-box">
       <div class="form-value">
 
-        <form>
+        <form id="logForm" method="post" action="/user/login">
             <input type="hidden" id="serverMessage" value="{{message}}">
 
 
           <h2>Login</h2>
           <div class="inputbox">
             <ion-icon name="mail-outline"></ion-icon>
-            <input type="email" required>
+            <input id="email" name="email" type="email" required>
             <label>Email</label>
           </div>
 
           <div class="inputbox">
 
             <ion-icon name="lock-closed-outline"></ion-icon>
-            <input type="password" required>
+            <input id="password" name="password" type="password" required>
             <label>Password</label>
           </div>
           <div class="forget">
@@ -47,20 +47,59 @@
 
 <script>
    document.addEventListener('DOMContentLoaded', () => {
+
+    const loginForm = document.getElementById('logForm')
     
     const serverMessageInput = document.getElementById('serverMessage');
     const serverMsg = serverMessageInput ? serverMessageInput.value : "";
 
-    if (serverMsg && serverMsg.trim() !== "") {
+    if (serverMsg !== "") {
         Swal.fire({
             
             icon: serverMsg.toLowerCase().includes('succes') ? 'success' : 'error',
-            title: 'Welcome', 
+            title: 'Alert', 
             text: serverMsg,
-            timer: 3000, 
+            timer: 2000, 
             showConfirmButton: false, 
             timerProgressBar: true 
         });
+    }
+
+
+    if(loginForm){
+      loginForm.addEventListener('submit', (event)=>{
+
+        event.preventDefault();
+
+         const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+      
+
+        if(email == '' || password == "" ){
+          Swal.fire({
+                    icon: 'warning',
+                    title: 'all fields are required',
+                    text: 'All fields must be filled',
+                    confirmButtonColor: '#3085d6'
+                });
+                return;
+        }
+
+        if (password.length < 6) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Short Password',
+                    text: 'Password must be at least 6 characters long!',
+                    confirmButtonColor: '#3085d6'
+                });
+                return;
+            }
+
+    
+               console.log("Form Data:", { email, password });
+               loginForm.submit();       
+
+      })
     }
 });
 </script>
