@@ -102,4 +102,16 @@
       })
     }
 });
+
+// ലോഗിൻ പേജ് ഹിസ്റ്ററിയിൽ നിന്ന് മാറ്റുന്നു
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+
+    // ബാക്ക് ബട്ടൺ ബ്ലോക്ക് ചെയ്യാൻ (ഇത് വളരെ ഇഫക്ടീവ് ആണ്)
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
 </script>

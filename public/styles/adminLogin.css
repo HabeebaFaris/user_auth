@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+a {
+  color: #666;
+  font-size: 14px;
+  display: block;
+}
+.login-title {
+  text-align: center;
+}
+#login-page {
+  display: flex;
+}
+.notice {
+  font-size: 13px;
+  text-align: center;
+  color: #666;
+}
+.login {
+  width: 50%;
+  height: 100vh;
+  background: #FFF;
+  padding: 70px;
+}
+.login a {
+  margin-top: 25px;
+  text-align: center;
+}
+.form-login {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+.form-login label {
+  text-align: left;
+  font-size: 13px;
+  margin-top: 10px;
+  margin-left: 20px;
+  display: block;
+  color: #666;
+}
+.input-email,
+.input-password {
+  width: 100%;
+  background: #ededed;
+  border-radius: 25px;
+  margin: 4px 0 10px 0;
+  padding: 10px;
+  display: flex;
+}
+.icon {
+  padding: 4px;
+  color: #666;
+  min-width: 30px;
+  text-align: center;
+}
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 4px 0;
+  outline: none;
+}
+button[type="submit"] {
+  width: 100%;
+  border: 0;
+  border-radius: 25px;
+  padding: 14px;
+  background: #008552;
+  color: #FFF;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: ease all 0.3s;
+}
+button[type="submit"]:hover {
+  opacity: 0.9;
+}
+.background {
+  width: 50%;
+  padding: 40px;
+  height: 100vh;
+  background: linear-gradient(60deg, rgba(158, 189, 19, 0.5), rgba(0, 133, 82, 0.7)), url('https://picsum.photos/1280/720') center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-content: center;
+  flex-direction: row;
+}
+.background h1 {
+  max-width: 420px;
+  color: #FFF;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+}
+.background p {
+  max-width: 650px;
+  color: #1a1a1a;
+  font-size: 15px;
+  text-align: right;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+.created {
+  margin-top: 40px;
+  text-align: center;
+}
+.created p {
+  font-size: 13px;
+  font-weight: bold;
+  color: #008552;
+}
+.created a {
+  color: #666;
+  font-weight: normal;
+  text-decoration: none;
+  margin-top: 0;
+}
+.checkbox label {
+  display: inline;
+  margin: 0;
+}
+
+/* -----------------------------------------------------------sdfasdufsdo;fj */
+
+    .btn {
+        padding: 10px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Add User Button - Green Theme */
+    .add-user-btn {
+        background-color: #10b981; /* Emerald Green */
+        color: white;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+    }
+
+    .add-user-btn:hover {
+        background-color: #059669;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Edit Button - Blue/Indigo Theme */
+    .edit-btn {
+        background-color: #eef2ff;
+        color: #4361ee;
+        border: 1px solid #e0e7ff;
+    }
+
+    .edit-btn:hover {
+        background-color: #4361ee;
+        color: white;
+    }
+
+    /* Delete Button - Red Theme */
+    .delete-btn {
+        background-color: #fff1f2;
+        color: #e11d48;
+        border: 1px solid #fecdd3;
+    }
+
+    .delete-btn:hover {
+        background-color: #e11d48;
+        color: white;
+    }
+
+    /* Icon adjustments */
+    .btn i {
+        font-size: 14px;
+    }

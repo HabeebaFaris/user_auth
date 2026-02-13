@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="/styles/adminLogin.css">
+
+<div id="login-page">
+  <div class="login">
+    <h2 class="login-title">Login</h2>
+    <p class="notice">Please login to access the system</p>
+
+    <form id="adminLogin" method="post" action="/admin/login" class="form-login">
+
+       <input type="hidden" id="serverMessage" value="{{message}}">
+
+
+      <label for="email">E-mail</label>
+      <div class="input-email">
+        <i class="fas fa-envelope icon"></i>
+        <input type="email" id="email" value="{{email}}" name="email" placeholder="Enter your e-mail" >
+      </div>
+      <label for="password">Password</label>
+      <div class="input-password">
+        <i class="fas fa-lock icon"></i>
+        <input type="password" name="password" id="password" placeholder="Enter your password" >
+      </div>
+      <div class="checkbox">
+        <label for="remember">
+          <input type="checkbox" name="rememberMe">
+          Remember me
+        </label>
+      </div>
+      <button type="submit"><i class="fas fa-door-open"></i> Sign in</button>
+    </form>
+
+
+      <a href="#">Forgot your password?</a>
+    <div class="created">
+      <p>Created by <a href="https://codepen.io/kelvinqueiroz/">HabeebaFaris</a></p>
+    </div>
+  </div>
+  <div class="background">
+    <h1>Every step should be strong even it is so Hard</h1>
+  </div>
+</div>
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const adminloginForm = document.getElementById('adminLogin')
+    
+    const serverMessageInput = document.getElementById('serverMessage');
+    const serverMsg = serverMessageInput ? serverMessageInput.value : "";
+
+    if (serverMsg !== "") {
+        Swal.fire({
+            
+            icon: serverMsg.toLowerCase().includes('succes') ? 'success' : 'error',
+            title: 'Alert', 
+            text: serverMsg,
+            timer: 2000, 
+            showConfirmButton: false, 
+            timerProgressBar: true 
+        });
+    }
+
+
+    if( adminloginForm ){
+      adminloginForm.addEventListener('submit', (event)=>{
+
+        event.preventDefault();
+
+         const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+      
+ 
+        if(email == '' || password == "" ){
+
+          Swal.fire({
+                    icon: 'warning',
+                    title: 'all fields are required',
+                    text: 'All fields must be filled',
+                    confirmButtonColor: '#3085d6'
+                });
+                return;
+        } 
+
+        if (password.length < 6) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Short Password',
+                    text: 'Password must be at least 6 characters long!',
+                    confirmButtonColor: '#3085d6'
+                });
+                return;
+            }
+
+    
+               console.log("Form Data:", { email, password });
+               adminloginForm.submit();       
+
+      })
+    }
+});
+
+</script>

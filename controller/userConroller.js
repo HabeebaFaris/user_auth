@@ -31,6 +31,11 @@ const registerUser = async (req, res) => {
   }
 }
 
+const logout = (req, res)=> {
+  req.session.destroy()
+  res.redirect('/user/login')
+}
+
 const login = async (req, res)=> {
   try {
     
@@ -46,7 +51,9 @@ const login = async (req, res)=> {
       return res.render('user/login', {message: 'Incorrect password'})
     }
 
-    res.render( 'user/home', {message: "Login succesful !"} )
+    req.session.user = email;
+
+    res.redirect( '/user/home' )//, {message: "Login succesful !"}
 
   } catch (error) {
     
@@ -63,11 +70,17 @@ const loadLogin = (req, res) => {
   res.render('user/login')
 }
 
+const loadHome = (req,res) => {
+  res.render('user/home')
+}
+
 module.exports = {
 
   registerUser,
   loadRegister,
   loadLogin,
-  login
+  login,
+  loadHome,
+  logout
 
 }
